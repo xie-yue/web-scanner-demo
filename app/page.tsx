@@ -42,11 +42,18 @@ export default function Home() {
       <button onClick={startScan} className="border border-black p-2">
         click to scan
       </button>
-      <div id="reader" className="w-full"></div>
-      <div className="w-full">
-        <p className="text-black text-base">{"result: " + qrtext}</p>
-        <p className="text-red-500 text-base">{"error: " + qrerror}</p>
-      </div>
+      {qrtext ? (
+        <div className="w-full">
+          <p className="text-black text-base">{"result: " + qrtext}</p>
+        </div>
+      ) : (
+        <>
+          <div id="reader" className="w-full"></div>
+          <div className="w-full">
+            <p className="text-red-500 text-base">{"error: " + qrerror}</p>
+          </div>
+        </>
+      )}
     </main>
   );
 }
